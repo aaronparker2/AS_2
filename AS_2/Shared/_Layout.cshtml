@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hello</title>
+    <link rel="stylesheet" type="text/css" href="@Href(" ~/shared/style.css")" />
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            @*<h1>This is my header</h1>*@
+            @RenderPage("~/Shared/_Header.cshtml")
+        </header>
+        <div id="nav">
+            <div class="tooltip">
+                <a href="~/default.cshtml" class="tooltip">
+                    <i class="fa fa-home" aria-hidden="true" style="font-size:36px;color:white;"></i>
+                </a>
+                <span class="tooltiptext">Home</span>
+            </div>
+            <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
+            <div class="tooltip">
+                <a href="~/WebPage1.cshtml" class="tooltip">
+                    <i class="fa fa-music" aria-hidden="true" style="font-size:36px;color:white;"></i>
+                </a>
+                <span class="tooltiptext">Guitars</span>
+            </div>
+            <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
+            <div class="tooltip">
+                <a href="~/WebPage2.cshtml" class="tooltip">
+                    <i class="fa fa-database" aria-hidden="true" style="font-size:36px;color:white;"></i>
+                </a>
+                <span class="tooltiptext">SongList</span>
+            </div>
+        </div>
+        <div id="HedLine"></div>
+
+        <aside>
+            @*<h2>This is my sidebar</h2>*@
+            @RenderSection("sidebar", false)
+        </aside>
+        <div class="content">
+            @RenderBody()
+            @* can only have renderbody in one place *@
+        </div>
+
+        <footer>
+            @*<p>This is my Footer</p>*@
+            @RenderPage("~/Shared/_Footer.cshtml")
+
+
+        </footer>
+
+
+    </div>
+
+
+</body>
+</html>
