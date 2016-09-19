@@ -1,4 +1,4 @@
-﻿@if (IsPost)
+﻿@*@if (IsPost)
 {
     <text>
         The time is: <br /> @DateTime.Now <br />
@@ -17,38 +17,126 @@
 <html>
 <head>
     <title>Guitars</title>
+    <link rel="stylesheet" type="text/css" href="@Href(" ~/shared/style2.css")" />
+</head>
+<body>
+
+    <h2>Pick Your Favorite Guitar</h2>
+    @{ var firstname = Request["Firstname"]; var lastname = Request["Lastname"]; }
+    <h3>Pick your favorite guitar @firstname @lastname</h3>
+
+   id="Guitars"
+    <div class="tooltip">
+    <div class="container">
+        <div class="row">
+
+            <div>
+                <a href="~/WebPage2.cshtml" name="ex">
+                    <img src="~/Images/Explorer.jpg" class="img-responsive img-thumbnail"
+                         alt="Explorer" style="width:300px;height:120px">
+                </a>
+            </div>
+            <div>
+                @*<div class="tooltip">
+                <a href="~/WebPage2.cshtml" name="lp">
+                    <img src="~/Images/LesPaul.jpg" class="img-responsive img-thumbnail"
+                         alt="LesPaul" style="width:300px;height:120px">
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                @*<div class="tooltip">
+                <a href="~/WebPage2.cshtml" name="rg">
+                    <img src="~/Images/RG.png" class="img-responsive img-thumbnail"
+                         alt="RG" style="width:300px;height:120px">
+                </a>
+            </div>
+            @*<div class="tooltip"><div>
+                <a href="~/WebPage2.cshtml" name="sg">
+                    <img src="~/Images/SG.jpg" class="img-responsive img-thumbnail"
+                         alt="SG" style="width:300px;height:120px">
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            @*<div class="tooltip"><div>
+                <a href="~/WebPage2.cshtml" name="st">
+                    <img src="~/Images/Stratocaster.jpg" class="img-responsive img-thumbnail"
+                         alt="Stratocaster" style="width:300px;height:120px">
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>
+@section sidebar{
+    <h3>Guitar came from?</h3>
+    <p>
+        The guitar is an ancient and noble instrument,
+        whose history can be traced back over 4000 years.
+        Many theories have been advanced about the instrument's
+        ancestry. It has often been claimed that the guitar is a
+        development of the lute, or even of the ancient Greek kithara.
+    </p>
+
+}*@
+
+@if (IsPost)
+{
+    <text>
+        The time is: <br /> @DateTime.Now <br />
+        @DateTime.Now is the <em>current</em> time.
+    </text>
+
+}
+
+
+
+@{
+    Layout = "~/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guitars</title>
+
 </head>
 <body>
     <h2>Pick Your Favorite Guitar</h2>
     @{ var firstname = Request["Firstname"]; var lastname = Request["Lastname"]; } @firstname @lastname
 
     <div id="Guitars">
-        <div class="tooltip">
-            <a href="~/WebPage2.cshtml" name="ex" >
-                <img src="~/Images/Explorer.jpg" id="ex" class="tooltip" style="width:300px;height:120px">
+        <div>
+            <a href="~/WebPage2.cshtml" name="ex" id="ex">
+                <img src="~/Images/Explorer.jpg" style="width:300px;height:120px">
             </a>
-            <span class="tooltiptext">Explorer</span>
         </div>
-        <div class="tooltip">
-            <a href="~/WebPage2.cshtml" name="lp" >
-                <img src="~/Images/LesPaul.jpg" class="tooltip" id="lp"style="width:300px;height:120px">
-            </a><span class="tooltiptext">LesPaul</span>
-        </div>
-        <div class="tooltip">
-            <a href="~/WebPage2.cshtml" name="rg" >
-                <img src="~/Images/RG.png" id="rg" class="tooltip" style="width:300px;height:100px">
+        <div>
+            <a href="~/WebPage2.cshtml" name="lp" id="lp">
+                <img src="~/Images/LesPaul.jpg" style="width:300px;height:120px">
             </a>
-            <span class="tooltiptext">RG</span>
         </div>
-        <div class="tooltip">
-            <a href="~/WebPage2.cshtml" name="sg" >
-                <img src="~/Images/SG.jpg" class="tooltip" id="sg"style="width:300px;height:120px">
-            </a> <span class="tooltiptext">SG</span>
+        <div>
+            <a href="~/WebPage2.cshtml" name="rg" id="rg">
+                <img src="~/Images/RG.png" id="RG" style="width:300px;height:100px">
+            </a>            
         </div>
-        <div class="tooltip">
-            <a href="~/WebPage2.cshtml" name="st" >
-                <img src="~/Images/Stratocaster.jpg" id="stratocaster"class="tooltip" style="width:300px;height:120px">
-            </a><span class="tooltiptext">Stratocaster</span>
+        <div>
+            <a href="~/WebPage2.cshtml" name="sg" id="sg">
+                <img src="~/Images/SG.jpg" style="width:300px;height:120px">
+            </a>
+        </div>
+        <div>
+            <a href="~/WebPage2.cshtml" name="st" id="st">
+                <img src="~/Images/Stratocaster.jpg" style="width:300px;height:120px">
+            </a>
         </div>
 
     </div>

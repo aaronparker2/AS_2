@@ -1,48 +1,152 @@
-﻿<!DOCTYPE html>
+﻿@*<!DOCTYPE html>
+    <html lang="en">
+    <head>
+
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="@Href(" ~/shared/style2.css")" />
+        @*<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">MatchSongWithGuitar</a>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li><a href="~/default.cshtml">Home</a></li>
+                    <li><a href="~/WebPage1.cshtml">Guitars</a></li>
+                    <li><a href="~/WebPage2.cshtml">Music</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row">
+                <div class="bg-warning col-xs-12" style="background-color:cadetblue">
+                    @RenderPage("~/Shared/_Header.cshtml")
+                </div>
+            </div>
+        <div class="wrapper container-fluid">
+            <div class="row">
+                <div class="col-xs-0 "></div>
+                <div class="content col-md-7">
+
+                    @RenderBody()
+
+                </div>
+
+                <div class="sidebar col-md-3">
+                    @RenderSection("sidebar", false)
+                </div>
+                <div class="col-xs-1"></div>
+            </div>
+
+            <nav id="footer" class="navbar navbar-default navbar-fixed-bottom">
+                @RenderPage("~/Shared/_Footer.cshtml")
+            </nav>
+        </div>
+
+    </body>
+    </html>*@
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Hello</title>
-    <link rel="stylesheet" type="text/css" href="@Href(" ~/shared/style.css")" />
+    <title></title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="@Href(" ~/shared/style2.css")" />
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="wrapper">
-        <header>
-            @*<h1>This is my header</h1>*@
-            @RenderPage("~/Shared/_Header.cshtml")
-        </header>
-        <div id="nav">
-            <div class="tooltip">
-                <a href="~/default.cshtml" class="tooltip">
-                    <i class="fa fa-home" aria-hidden="true" style="font-size:36px;color:white;"></i>
-                </a>
-                <span class="tooltiptext">Home</span>
-            </div>
-            <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
-            <div class="tooltip">
-                <a href="~/WebPage1.cshtml" class="tooltip">
-                    <i class="fa fa-music" aria-hidden="true" style="font-size:36px;color:white;"></i>
-                </a>
-                <span class="tooltiptext">Guitars</span>
-            </div>
-            <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
-            <div class="tooltip">
-                <a href="~/WebPage2.cshtml" class="tooltip">
-                    <i class="fa fa-database" aria-hidden="true" style="font-size:36px;color:white;"></i>
-                </a>
-                <span class="tooltiptext">SongList</span>
-            </div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        @*<div class="container-fluid">*@
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">MatchSongWithGuitar</a>
         </div>
-        <div id="HedLine"></div>
+        <ul id="nav" class="nav nav-tabs">
+                <li>
+                    <a href="~/default.cshtml">
+                        <i class="fa fa-home" aria-hidden="true" style="font-size:36px;color:#332a38;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/WebPage1.cshtml">
+                        <i class="fa fa-music" aria-hidden="true" style="font-size:36px;color:#332a38;"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="~/WebPage2.cshtml">
+                        <i class="fa fa-database" aria-hidden="true" style="font-size:36px;color:#332a38;"></i>
+                    </a>                    
+                </li>
+        </ul>
+        @*</div>*@
+    </nav>
+    <div class="wrapper">
+        @*<header>
+                @*<h1>This is my header</h1>
+                @RenderPage("~/Shared/_Header.cshtml")
+            </header>*@
+        @*<nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
 
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">MatchSongWithGuitar</a>
+                    </div>
+                    <div class="row">
+                        <ul class="nav nav-tabs">
+                            <li>
+                                <a href="~/default.cshtml">
+                                    <i class="fa fa-home"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="~/WebPage1.cshtml">
+                                    <i class="fa fa-music"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="~/WebPage2.cshtml">
+                                    <i class="fa fa-database"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+            </nav>*@
+ 
+
+        @*<div id="nav">
+                <div class="tooltip">
+                    <a href="~/default.cshtml" class="tooltip">
+                        <i class="fa fa-home" aria-hidden="true" style="font-size:36px;color:teal;"></i>
+                    </a>
+                    <span class="tooltiptext">Home</span>
+                </div>
+                <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
+                <div class="tooltip">
+                    <a href="~/WebPage1.cshtml" class="tooltip">
+                        <i class="fa fa-music" aria-hidden="true" style="font-size:36px;color:teal;"></i>
+                    </a>
+                    <span class="tooltiptext">Guitars</span>
+                </div>
+                <span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span>
+                <div class="tooltip">
+                    <a href="~/WebPage2.cshtml" class="tooltip">
+                        <i class="fa fa-database" aria-hidden="true" style="font-size:36px;color:teal;"></i>
+                    </a>
+                    <span class="tooltiptext">SongList</span>
+                </div>
+            </div>*@
         <aside>
             @*<h2>This is my sidebar</h2>*@
             @RenderSection("sidebar", false)
         </aside>
+        @*<div id="HedLine"></div>*@
         <div class="content">
             @RenderBody()
             @* can only have renderbody in one place *@
         </div>
+
+
 
         <footer>
             @*<p>This is my Footer</p>*@
@@ -57,3 +161,4 @@
 
 </body>
 </html>
+
