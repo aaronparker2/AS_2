@@ -1,51 +1,4 @@
-﻿@*<!DOCTYPE html>
-    <html lang="en">
-    <head>
-
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="@Href(" ~/shared/style2.css")" />
-        @*<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-    </head>
-    <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">MatchSongWithGuitar</a>
-                </div>
-                <ul class="nav nav-tabs">
-                    <li><a href="~/default.cshtml">Home</a></li>
-                    <li><a href="~/WebPage1.cshtml">Guitars</a></li>
-                    <li><a href="~/WebPage2.cshtml">Music</a></li>
-                </ul>
-            </div>
-        </nav>
-        <div class="row">
-                <div class="bg-warning col-xs-12" style="background-color:cadetblue">
-                    @RenderPage("~/Shared/_Header.cshtml")
-                </div>
-            </div>
-        <div class="wrapper container-fluid">
-            <div class="row">
-                <div class="col-xs-0 "></div>
-                <div class="content col-md-7">
-
-                    @RenderBody()
-
-                </div>
-
-                <div class="sidebar col-md-3">
-                    @RenderSection("sidebar", false)
-                </div>
-                <div class="col-xs-1"></div>
-            </div>
-
-            <nav id="footer" class="navbar navbar-default navbar-fixed-bottom">
-                @RenderPage("~/Shared/_Footer.cshtml")
-            </nav>
-        </div>
-
-    </body>
-    </html>*@
+﻿
 
 <!DOCTYPE html>
 <html lang="en">
@@ -62,25 +15,26 @@
             <a class="navbar-brand" href="#">MatchSongWithGuitar</a>
         </div>
         <ul id="nav" class="nav nav-tabs">
-                <li>
-                    <a href="~/default.cshtml">
-                        <i class="fa fa-home" aria-hidden="true" style="font-size:36px;color:#332a38;"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="~/WebPage1.cshtml">
-                        <i class="fa fa-music" aria-hidden="true" style="font-size:36px;color:#332a38;"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="~/WebPage2.cshtml">
-                        <i class="fa fa-database" aria-hidden="true" style="font-size:36px;color:#332a38;"></i>
-                    </a>                    
-                </li>
+            <li>
+                <a href="~/default.cshtml">
+                    <i class="fa fa-home" aria-hidden="true" style="font-size:36px;color:#332a38;"></i>
+                </a>
+            </li>
+            <li>
+                <a href="~/WebPage1.cshtml">
+                    <i class="fa fa-music" aria-hidden="true" style="font-size:36px;color:#332a38;"></i>
+                </a>
+            </li>
+            <li>
+                <a href="~/WebPage2.cshtml">
+                    <i class="fa fa-database" aria-hidden="true" style="font-size:36px;color:#332a38;"></i>
+                </a>
+            </li>
         </ul>
         @*</div>*@
     </nav>
-    <div class="wrapper">
+    @*<div class="wrapper">*@
+    <div>
         @*<header>
                 @*<h1>This is my header</h1>
                 @RenderPage("~/Shared/_Header.cshtml")
@@ -112,7 +66,7 @@
                     </div>
                     </div>
             </nav>*@
- 
+
 
         @*<div id="nav">
                 <div class="tooltip">
@@ -136,27 +90,46 @@
                     <span class="tooltiptext">SongList</span>
                 </div>
             </div>*@
-        <aside>
-            @*<h2>This is my sidebar</h2>*@
-            @RenderSection("sidebar", false)
-        </aside>
-        @*<div id="HedLine"></div>*@
-        <div class="content">
-            @RenderBody()
-            @* can only have renderbody in one place *@
+
+        <div class="container">
+            <div id="topSpace" class="row"></div>
+            <div class="row">
+                <section class="col-md-8 content">
+
+                    <div>
+                        @*class="content"*@
+                    @RenderBody()
+                    @* can only have renderbody in one place *@
+                </div>
+
+            </section>
+            <section class="col-md-4">
+
+                <aside>
+                    @*<h2>This is my sidebar</h2>*@
+                    @RenderSection("sidebar", false)
+                </aside>
+                @*<div id="HedLine"></div>*@
+            </section>
+
         </div>
+        <div class="row">
+            <section class="col-md-12" style="background-color: darkgray;">
+                <footer>
+                    @*<p>This is my Footer</p>*@
+                    @RenderPage("~/Shared/_Footer.cshtml")
 
 
-
-        <footer>
-            @*<p>This is my Footer</p>*@
-            @RenderPage("~/Shared/_Footer.cshtml")
-
-
-        </footer>
-
-
+                </footer>
+            </section>
+        </div>
     </div>
+
+
+
+
+
+</div>
 
 
 </body>

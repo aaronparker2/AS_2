@@ -1,127 +1,4 @@
-﻿@*@{
-    Layout = "~/Shared/_Layout.cshtml";
-}
-@{ var msg = "";
-    Validation.Add("FirstName", Validator.Required("First Name is required"), Validator.StringLength(10, 3, "Name must be greater than 3 characters but less than 10"));
-    Validation.Add("LastName", Validator.Required("Last Name is required"), Validator.StringLength(10, 3, "Name must be greater than 3 characters but less than 10"));
-
-    if (IsPost)
-    {
-        var FirstName = Request["FirstName"];
-        var LastName = Request["LastName"];
-        if (Validation.IsValid()) { msg = "Welcome " + FirstName + " " + LastName; }
-        else
-        {
-            Validation.AddFormError("ERROR");
-        }
-    } }
-
-@*<div class="center" id="intro">
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-
-    <link rel="stylesheet" type="text/css" href="@Href(" ~/shared/style2.css")" />
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container-fluid">
-        <h1>Art of Music</h1>
-        <div class="row">
-            <div></div>
-            <div>
-                <p id="intro" class="center">
-                    The world of music is amazing. You can change someones mood, motivate, inspire creativity and help make
-                    choices for better or worse. This site is just a great way to find out what certain guitars have been
-                    used to make the popular songs famous over history
-                </p>
-
-            </div>
-            <div></div>
-        </div>
-
-        @msg
-        <label for="form_for_name"></label>
-        <form class="form-group" method="get" action="/WebPage1.cshtml">
-           
-            <h3>Please Enter Name</h3>
-            <div>
-               
-
-                @Html.ValidationSummary(true)
-
-                <div class="row">
-                    <div class="col-sm-4"></div>
-
-                    <div class="col-sm-4">
-                        <label for="firstName" class="left">First Name</label>
-                        <input type="text" id="firstName" class="form-control" placeholder="First Name" name="firstName" />
-
-                    </div>
-                    <div class="col-sm-4"></div>
-                    <div class="clearfix"></div>
-                    <br />
-
-                    <div class="row">
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-4">
-                            <label for="lastName" class="left">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName" />
-                        </div>
-                        <div class="col-sm-1"></div>
-
-                        @Html.ValidationMessage("firstname")
-                        @Html.ValidationMessage("lastname")
-                        <div class="col-sm-2">
-                            <input class="button btn-lg btn-success " type="submit" />
-                        </div>
-                        <div class="col-sm-1"></div>
-                    </div>
-                </div>
-                <br />
-
-
-                <div>
-                        <label for="firstname">First Name:</label>
-                        <input type="text" name="firstname" value="@Request.Form["firstname"]" />
-                        @Html.ValidationMessage("firstname")
-                    </div>
-                    <div>
-                        <label for="lastname">Last Name:</label>
-                        <input type="text" name="lastname" value="@Request.Form["lastname"]" />
-                        @Html.ValidationMessage("lastname")
-                    </div>
-                    <div>
-                        <label>&nbsp;</label>
-                        <input type="submit" value="Submit" />
-            </div>
-        </form>
-    </div>
-
-</body>
-
-</html>
-
-@section sidebar{
-    <h3>Types of Rock</h3>
-    <ul class="list-unstyled">
-        id="typesRock"
-
-        <li>Heavy-Metal</li>
-        <li>Punk-Rock</li>
-        <li>Alternative</li>
-        <li>Progressive-Rock</li>
-        <li>Blues-Rock</li>
-        <li>Rock-n-Roll</li>
-        <li>Grunge-Rock</li>
-
-    </ul>
-
-}*@
+﻿
 
 @{
     Layout = "~/Shared/_Layout.cshtml";
@@ -141,22 +18,7 @@
         }
     } }
 
-<div class="center" id="intro">
-    <p>
-        The world of music is amazing. You can change
-    </p><p>
-        someones mood, motivate, inspire creativity and
-    </p><p>
-        help make choices for better or worse. This
-    </p><p>
-        site is just a great way to find out what certain
-    </p><p>
-        guitars have been used to make the popular songs
-    </p><p>
-        famous over history
-    </p>
 
-</div>
 
 <!DOCTYPE html>
 <html>
@@ -166,7 +28,22 @@
 </head>
 <body>
     @msg
+    <div class="center" id="intro">
+        <p>
+            The world of music is amazing. You can change
+        </p><p>
+            someones mood, motivate, inspire creativity and
+        </p><p>
+            help make choices for better or worse. This
+        </p><p>
+            site is just a great way to find out what certain
+        </p><p>
+            guitars have been used to make the popular songs
+        </p><p>
+            famous over history
+        </p>
 
+    </div>
     <form method="get" action="/WebPage1.cshtml" class="center">
         <h3>Please Enter Name</h3>
         <div id="form">
@@ -181,45 +58,46 @@
 
                 </div>
                 <div class="col-sm-4"></div>
-                <div class="clearfix"></div>
-                <br />
-
-                <div class="row">
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-4">
-                        <label for="lastName" class="left">Last Name</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName" />
-                    </div>
-                    <div class="col-sm-1"></div>
-
-                    @Html.ValidationMessage("firstname")
-                    @Html.ValidationMessage("lastname")
-                    <div class="col-sm-2">
-                        <input class="button btn-lg btn-success " type="submit" />
-                    </div>
-                    <div class="col-sm-1"></div>
-                </div>
             </div>
-            @*<input type="text" placeholder="First Name" name="firstName" />
+
+            <div class="clearfix"></div>
+            <br />
+
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <label for="lastName" class="left">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName" />
+                </div>
+                <div class="col-sm-1"></div>
+
+                @Html.ValidationMessage("firstname")
+                @Html.ValidationMessage("lastname")
+                <div class="col-sm-2">
+                    <input class="button btn-lg btn-success " type="submit" />
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+        @*<input type="text" placeholder="First Name" name="firstName" />
             <input type="text" placeholder="Last Name" name="lastName" />
             <br />
             @Html.ValidationMessage("firstname")<br />
             @Html.ValidationMessage("lastname") <br />
             <input class="button button2" type="submit" />*@
-            @*<div>
-                    <label for="firstname">First Name:</label>
-                    <input type="text" name="firstname" value="@Request.Form["firstname"]" />
-                    @Html.ValidationMessage("firstname")
-                </div>
-                <div>
-                    <label for="lastname">Last Name:</label>
-                    <input type="text" name="lastname" value="@Request.Form["lastname"]" />
-                    @Html.ValidationMessage("lastname")
-                </div>
-                <div>
-                    <label>&nbsp;</label>
-                    <input type="submit" value="Submit" />*@
-        </div>
+        @*<div>
+                <label for="firstname">First Name:</label>
+                <input type="text" name="firstname" value="@Request.Form["firstname"]" />
+                @Html.ValidationMessage("firstname")
+            </div>
+            <div>
+                <label for="lastname">Last Name:</label>
+                <input type="text" name="lastname" value="@Request.Form["lastname"]" />
+                @Html.ValidationMessage("lastname")
+            </div>
+            <div>
+                <label>&nbsp;</label>
+                <input type="submit" value="Submit" />*@
     </form>
 
 </body>
