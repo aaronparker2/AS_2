@@ -2,138 +2,113 @@
 @{
     Layout = "~/Shared/_Layout.cshtml";
 }
+@{var imgValue = Request["btn1"];}
 @{
-    <h3>My Favorite Songs</h3>
-    string[,] arrLesPaul = new string[5, 2] { { "'Walk This Way'", "Aerosmith" }, {  "'Sweet Child O' Mine'", "Guns N' Roses" },
-                                        {  "'Another Brick in the Wall'", "Pink Floyd"}, {  "'Heartbreaker'", "Led Zeppelin" },
-                                        {  "'Hotel California'", "Eagles" } };
+    <h3>Songs And Artist Played With Chosen Guitar</h3>
+    
 
-    string[,] arrExplorer = new string[5, 2] { { "'Breakout'", "Foo Fighters" }, {  "'Enter Sandman'", "Metallica" },
-                                        {  "'Free Bird'", "Lynyrd Skynyrd"}, {  "'Beautiful Day'", "U2" },
-                                        {  "'Rock You Like a Huricane'", "Scorpions" } };
-
-    string[,] arrStrat = new string[5, 2] { { "'All Along the Watchtower'", "Jimi Hendrix" }, {  "'Highway Star'", "Deep Purple" },
-                                        { "'Black Rose'", "Thin Lizzy"}, {  "'Soma'", "Smashing Pumpkins" },
-                                        {  "'Stairway to Heaven'", "Led Zepplin" } };
-
-    string[,] arrSG = new string[5, 2] { { "'Crossroads'", "Eric Clapton" }, {  "'Let There be Rock'", "AC / DC" },
-                                        {  "'Soul Sacrifice'", "Santana"}, {  "'Love Me Two Times'", "The Doors" },
-                                        {  "'Motorhead'", "Metallica" } };
-
-    string[,] arrRG = new string[5, 2] { { "'Cherry Pie", "Warrant" }, {  "'Symphony of Destructon'", "Megadeth" },
-                                        {  "'Mother'", "Danzig"}, {  "'Hysteria'", "Def Leppard" },
-                                        {  "'Freak on a Leash'", "Korn" } };
-
-    //for (int i = 0; i < arrLesPaul.GetLength(0); i++)
-    //{
-    //    for (int j = 0; j < arrLesPaul.GetLength(1); j++)
-    //    {
-    //        string s = arrLesPaul[i, j];
-    //        Console.WriteLine(s);
-    //    }
-    //}
-
+        <p>@imgValue</p>
 }
-@*@if (IsPost)
-    {
-        string[,] arrayTemp = new string[5, 2] { {"",""}, {"", ""}, {"", ""}, {"", ""}, {"", ""} };
-        switch (id)
-        {
-            case "ex":
-                arrayTemp = arrLesPaul;
-                break;
-            case "lp":
-                arrayTemp = arrExplorer;
-                break;
-            case "rg":
-                arrayTemp = arrStrat;
-                break;
-            case "sg":
-                arrayTemp = arrSG;
-                break;
-            case "st":
-                arrayTemp = arrRG;
-                break;
-        }
 
 
-    }*@
-<!DOCTYPE html>
 <html>
 <head>
     <title>Songs</title>
-
 </head>
 <body>
+
+   
+    @{
+
+        string[,] arrayTemp = new string[5, 2] { { "", "" }, { "", "" }, { "", "" }, { "", "" }, { "", "" } };
+        if (imgValue != null)
+        {
+
+
+            string[,] arrLesPaul = new string[5, 2] { { "'Walk This Way'", "Aerosmith" }, {  "'Sweet Child O' Mine'", "Guns N' Roses" },
+                                        {  "'Another Brick in the Wall'", "Pink Floyd"}, {  "'Heartbreaker'", "Led Zeppelin" },
+                                        {  "'Hotel California'", "Eagles" } };
+
+            string[,] arrExplorer = new string[5, 2] { { "'Breakout'", "Foo Fighters" }, {  "'Enter Sandman'", "Metallica" },
+                                        {  "'Free Bird'", "Lynyrd Skynyrd"}, {  "'Beautiful Day'", "U2" },
+                                        {  "'Rock You Like a Huricane'", "Scorpions" } };
+
+            string[,] arrStrat = new string[5, 2] { { "'All Along the Watchtower'", "Jimi Hendrix" }, {  "'Highway Star'", "Deep Purple" },
+                                        { "'Black Rose'", "Thin Lizzy"}, {  "'Soma'", "Smashing Pumpkins" },
+                                        {  "'Stairway to Heaven'", "Led Zepplin" } };
+
+            string[,] arrSG = new string[5, 2] { { "'Crossroads'", "Eric Clapton" }, {  "'Let There be Rock'", "AC / DC" },
+                                        {  "'Soul Sacrifice'", "Santana"}, {  "'Love Me Two Times'", "The Doors" },
+                                        {  "'Motorhead'", "Metallica" } };
+
+            string[,] arrRG = new string[5, 2] { { "'Cherry Pie", "Warrant" }, {  "'Symphony of Destructon'", "Megadeth" },
+                                        {  "'Mother'", "Danzig"}, {  "'Hysteria'", "Def Leppard" },
+                                        {  "'Freak on a Leash'", "Korn" } };
+
+
+
+            if (imgValue.Equals("ex"))
+            {
+                arrayTemp = arrExplorer;
+            }
+            if (imgValue.Equals("lp"))
+            {
+                arrayTemp = arrLesPaul;
+            }
+            if (imgValue.Equals("rg"))
+            {
+                arrayTemp = arrRG;
+            }
+            if (imgValue.Equals("sg"))
+            {
+                arrayTemp = arrSG;
+            }
+            if (imgValue.Equals("st"))
+            {
+                arrayTemp = arrStrat;
+            }
+        }
+    }
+
     <div class="container">
         <div class="row">
+            <section class="col-md-1"></section>
             <section class="col-md-9">
-
-                <table class="table-responsive table-bordered table-hover center" id="songs" border="0">
+                <table class="table-responsive table-bordered table-hover" id="songs" border="0">
                     <tbody>
-                        @*@for (i = 0; i < 5; i++)*@
+
                         <tr>
                             <th>Song</th>
                             <th>Band/Singer</th>
                         </tr>
                         <tr class="success">
-                            <td>@arrLesPaul[0, 0].ToString()</td>
-                            <td>@arrLesPaul[0, 1].ToString()</td>
+                            <td>@arrayTemp[0, 0].ToString()</td>
+                            <td>@arrayTemp[0, 1].ToString()</td>
                         </tr>
                         <tr class="success">
-                            <td>@arrLesPaul[1, 0].ToString()</td>
-                            <td>@arrLesPaul[1, 1].ToString()</td>
+                            <td>@arrayTemp[1, 0].ToString()</td>
+                            <td>@arrayTemp[1, 1].ToString()</td>
                         </tr>
                         <tr class="success">
-                            <td>@arrLesPaul[2, 0].ToString()</td>
-                            <td>@arrLesPaul[2, 1].ToString()</td>
+                            <td>@arrayTemp[2, 0].ToString()</td>
+                            <td>@arrayTemp[2, 1].ToString()</td>
                         </tr>
                         <tr class="success">
-                            <td>@arrLesPaul[3, 0].ToString()</td>
-                            <td>@arrLesPaul[3, 1].ToString()</td>
+                            <td>@arrayTemp[3, 0].ToString()</td>
+                            <td>@arrayTemp[3, 1].ToString()</td>
                         </tr>
                         <tr class="success">
-                            <td>@arrLesPaul[4, 0].ToString()</td>
-                            <td>@arrLesPaul[4, 1].ToString()</td>
+                            <td>@arrayTemp[4, 0].ToString()</td>
+                            <td>@arrayTemp[4, 1].ToString()</td>
                         </tr>
-
 
                     </tbody>
                 </table>
             </section>
+            <section class="col-md-2"></section>
         </div>
     </div>
-    @*<table class="center" id="songs" border="1">
-
-            <tr>
-                <th>Song</th>
-                <th>Band/Singer</th>
-            </tr>
-
-            <tr>
-                <td>memory remains</td>
-                <td>back in black</td>
-
-            </tr>
-            <tr>
-                <td>Metallica</td>
-                <td>AC/DC</td>
-
-            </tr>
-        </table>*@
-
-
-    @*
-                    foreach (var song in arrLesPaul)
-        {
-                        <p>@song</p>
-                    }<p>The length of the Array is @arrLesPaul.Length</p>
-                   <p>'Fade to Black' Metallica  is in position @Array.IndexOf(@arrLesPaul, "'Fade to Black' Metallica ") blah blah</p>
-                <p>The array item in position 3 is @arrLesPaul[3,2]</p>*@
-
-
 </body>
-
 </html>
 @section sidebar{
     <h3>My Favorite Bands</h3>
@@ -151,10 +126,7 @@
     </ol>
 
 
-
-
 }
-
 
 
 

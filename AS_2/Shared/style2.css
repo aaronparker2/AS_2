@@ -32,9 +32,8 @@ aside {
     background-color: #994e6a;
     color: #fff;
 }
-form {width: 500px;
-}
-#form { 
+
+#form { width: 500px;
        font-size: 18px;
 }
 div input {
@@ -177,12 +176,12 @@ h3 { padding-top: 15px;
     vertical-align: central;
 }
 
-#RG {
+#rg {
     padding-bottom: 10px;
     padding-top: 10px;
 }
 
-img {
+.image {
     background-color: white;
     border-radius: 5px;
     border: 5px solid#345865;

@@ -1,80 +1,66 @@
 ﻿
-
-@if (IsPost)
-{
-    <text>
-        The time is: <br /> @DateTime.Now <br />
-        @DateTime.Now is the <em>current</em> time.
-    </text>
+@*@{
+          if (IsPost)
+        {
+ 
+    var imgValue = Request.Params["btn1"];
 
 }
 
 
+
+}*@
 
 @{
     Layout = "~/Shared/_Layout.cshtml";
 }
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Guitars</title>
-
 </head>
 <body>
     <h2>Pick Your Favorite Guitar</h2>
     @{ var firstname = Request["Firstname"]; var lastname = Request["Lastname"]; } @firstname @lastname
+    <form method="get" action="/WebPage2.cshtml" class="center">
+        <div id="Guitars" class="container">
+            <div class="row" style="height: 10px"></div>
+            <div class="row">
+                <section class="col-md-4">
+                    <div>
+                        <input type="image" src="~/Images/Explorer.jpg" name="btn1" id="ex" value="ex" class="image" style="width:300px;height:120px" alt="ex" />
 
-    <div id="Guitars" class="container">
-        <div class="row" style="height: 10px"></div>
-        <div class="row">
-            <section class="col-md-4">
-
-                <div>
-                    <a href="~/WebPage2.cshtml" name="ex" id="ex">
-                        <img src="~/Images/Explorer.jpg" style="width:300px;height:120px">
-                    </a>
-                </div>
-            </section>
-            <section class="col-md-3">
-                <div>
-                    <a href="~/WebPage2.cshtml" name="lp" id="lp">
-                        <img src="~/Images/LesPaul.jpg" style="width:300px;height:120px">
-                    </a>
-                </div>
-            </section>
+                    </div>
+                </section>
+                <section class="col-md-3">
+                    <div>
+                        <input type="image" src="~/Images/LesPaul.jpg" name="btn1" id="lp" value="lp" class="image" style="width:300px;height:120px" alt="lp" />
+                    </div>
+                </section>
+            </div>
+            <div class="row" style="height: 10px"></div>
+            <div class="row">
+                <section class="col-md-4">
+                    <div>
+                        <input type="image" src="~/Images/RG.png" name="btn1" id="rg" value="rg" class="image" style="width:300px;height:120px" alt="rg" />
+                    </div>
+                </section>
+                <section class="col-md-3">
+                    <div>
+                        <input type="image" src="~/Images/SG.jpg" name="btn1" id="sg" value="sg" class="image" style="width:300px;height:120px" alt="sg" />
+                    </div>
+                </section>
+            </div>
+            <div class="row" style="height: 10px"></div>
+            <div class="row">
+                <section class="col-md-8">
+                    <div>
+                        <input type="image" src="~/Images/Stratocaster.jpg" name="btn1" id="st" value="st" class="image" style="width:300px;height:120px" alt="st" />
+                    </div>
+                </section>
+            </div>
         </div>
-        <div class="row" style="height: 10px"></div>
-        <div class="row">
-            <section class="col-md-4">
-                <div>
-                    <a href="~/WebPage2.cshtml" name="rg" id="rg">
-                        <img src="~/Images/RG.png" id="RG" style="width:300px;height:120px">
-                    </a>
-                </div>
-            </section>
-            <section class="col-md-3">
-                <div>
-                    <a href="~/WebPage2.cshtml" name="sg" id="sg">
-                        <img src="~/Images/SG.jpg" style="width:300px;height:120px">
-                    </a>
-                </div>
-            </section>
-        </div>
-        <div class="row" style="height: 10px"></div>
-        <div class="row">
-            <section class="col-md-8">
-                <div>
-                    <a href="~/WebPage2.cshtml" name="st" id="st">
-                        <img src="~/Images/Stratocaster.jpg" style="width:300px;height:120px">
-                    </a>
-                </div>
-            </section>
-        </div>
-
-    </div>
-
-
+    </form>
 </body>
 </html>
 @section sidebar{
@@ -86,5 +72,4 @@
         ancestry. It has often been claimed that the guitar is a
         development of the lute, or even of the ancient Greek kithara.
     </p>
-
 }

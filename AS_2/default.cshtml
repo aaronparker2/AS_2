@@ -1,6 +1,4 @@
-﻿
-
-@{
+﻿@{
     Layout = "~/Shared/_Layout.cshtml";
 }
 @{ var msg = "";
@@ -9,8 +7,8 @@
 
     if (IsPost)
     {
-        var FirstName = Request["FirstName"];
-        var LastName = Request["LastName"];
+        var FirstName = Request["firstName"];
+        var LastName = Request["lastName"];
         if (Validation.IsValid()) { msg = "Welcome " + FirstName + " " + LastName; }
         else
         {
@@ -31,15 +29,10 @@
     <div class="center" id="intro">
         <p>
             The world of music is amazing. You can change
-        </p><p>
             someones mood, motivate, inspire creativity and
-        </p><p>
             help make choices for better or worse. This
-        </p><p>
             site is just a great way to find out what certain
-        </p><p>
             guitars have been used to make the popular songs
-        </p><p>
             famous over history
         </p>
 
@@ -79,25 +72,7 @@
                 <div class="col-sm-1"></div>
             </div>
         </div>
-        @*<input type="text" placeholder="First Name" name="firstName" />
-            <input type="text" placeholder="Last Name" name="lastName" />
-            <br />
-            @Html.ValidationMessage("firstname")<br />
-            @Html.ValidationMessage("lastname") <br />
-            <input class="button button2" type="submit" />*@
-        @*<div>
-                <label for="firstname">First Name:</label>
-                <input type="text" name="firstname" value="@Request.Form["firstname"]" />
-                @Html.ValidationMessage("firstname")
-            </div>
-            <div>
-                <label for="lastname">Last Name:</label>
-                <input type="text" name="lastname" value="@Request.Form["lastname"]" />
-                @Html.ValidationMessage("lastname")
-            </div>
-            <div>
-                <label>&nbsp;</label>
-                <input type="submit" value="Submit" />*@
+
     </form>
 
 </body>
